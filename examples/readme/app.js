@@ -1,24 +1,17 @@
 import {Observable} from 'rx';
-import {div, p, input} from '@cycle/dom';
+import {div, h1, h3} from '@cycle/dom';
 
-export default function main({DOM, Keys}){
-  const enter$ = Keys.presses('enter');
-
-  const inputText$ = DOM
-    .select('.search')
-    .events('input')
-    .map(e => e.target.value)
-
-  enter$
-    .withLatestFrom(inputText$, (event, text) => text)
-    .subscribe(text => alert(text))
+export default function main({DOM, MousePosition}){
+  const mousePosition$ = MousePosition.positions();
 
   return {
-    DOM: Observable.just(
-      div('.container', [
-        p('.instructions', 'Write in a search term, then hit enter'),
-        input('.search')
-      ])
-    )
+    DOM: mousePosition$.map(pos =>
+      div(
+        '.container', [
+          h1('Where\'s my mouse at? 🐭'),
+          h3(`X: ${pos.x}, Y: ${pos.y}`)
+        ]
+      )
+    );
   }
 }
