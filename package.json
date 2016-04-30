@@ -1,8 +1,8 @@
 {
-  "name": "cycle-keys",
-  "version": "0.1.0",
-  "description": "A Cycle.js driver for keyboard events",
-  "main": "lib/keys-driver.js",
+  "name": "cycle-mouse-position",
+  "version": "0.0.1",
+  "description": "A driver for Cycle.js that provides a stream of mouse position vectors",
+  "main": "lib/mouse-position-driver.js",
   "files": [
     "lib/"
   ],
@@ -17,21 +17,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/raquelxmoss/cycle-keys.git"
+    "url": "git+https://github.com/raquelxmoss/cycle-mouse-position.git"
   },
   "keywords": [
     "Cycle",
     "Cycle.js",
-    "keys",
-    "keyboard",
+    "Mouse",
+    "Mouse position",
     "events"
   ],
-  "author": "Raquel Moss & Nick Johnstone",
+  "author": "Raquel Moss",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/raquelxmoss/cycle-keys/issues"
+    "url": "https://github.com/raquelxmoss/cycle-mouse-position/issues"
   },
-  "homepage": "https://github.com/raquelxmoss/cycle-keys#readme",
+  "homepage": "https://github.com/raquelxmoss/cycle-mouse-position#readme",
   "dependencies": {
     "keycode": "^2.1.1",
     "rx": "^4.1.0"
