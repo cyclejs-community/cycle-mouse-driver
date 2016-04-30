@@ -1,87 +1,71 @@
-# [Cycle Keys](http://raquelxmoss.github.io/cycle-keys)
-## A Cycle.js driver for keyboard events
+# [Cycle Mouse Position](http://raquelxmoss.github.io/cycle-mouse-position)
 
-This driver for Cycle.js helps you to manage keypress events on the document easily.
+Have you ever wanted a stream of mouse positions for your Cycle application? Then this driver is for you!
 
 ## Installation
 
-You can install Cycle Keys with npm
-
 ```bash
-$ npm install cycle-keys --save
+$ npm install cycle-mouse-position --save
 ```
 
 ## Usage
 
-- Install Cycle Keys with npm (see above)
+- Install Cycle Mouse Position with npm (see above)
 
 - Import the driver
 
 ```js
-import {makeKeysDriver} from 'cycle-keys';
+import {makeMousePositionDriver} from 'cycle-mouse-position';
 ```
 
-- Initialise the driver by calling `makeKeysDriver` in your drivers object
+- Initialise the driver by calling `makeMousePositionDriver()` in your drivers object
 
 ```js
 const drivers = {
-  Keys: makeKeysDriver()
+  MousePosition: makeMousePositionDriver()
 }
 ```
 
 - Add it to your main function's sources
 
 ```js
-function main({Keys}) { // Your amazing main function }
+function main({MousePosition}) { // Your amazing main function }
 ```
 
-- Call `Keys.presses` without any arguments to get a stream of all keypresses. You can also call `presses` with the name of a key to only get keypresses for that key. Currently, Cycle Keys supports inputting keys as strings only
+- Call `MousePosition.positions()` without any arguments to get a stream of all mousemove events as a vector with an x and a y position.
 
 ```js
-const allKeypresses$ = Keys.presses();
-const esc$ = Keys.presses('esc');
-const shift$ = Keys.presses('shift');
+const mousePosition$ = MousePosition.positions();
 ```
-
-**Note** Cycle Keys relies on [keycode](https://github.com/timoxley/keycode), see their documentation for more information about string aliases for keys.
 
 ## Example
 
-In this example, our user will input a search term. When they hit enter, an alert will appear showing the search term they typed in.
-
-[You can try this example out online](http://raquelxmoss.github.io/cycle-keys)
+**[Try this example online](http://raquelxmoss.github.io/cycle-mouse-position)** 
 
 ```js
 import {run} from '@cycle/core';
-import {makeDOMDriver, input, p, div} from '@cycle/dom';
+import {makeDOMDriver, div, h1, h3} from '@cycle/dom';
+import {makeMousePositionDriver} from 'cycle-mouse-position'
 import {Observable} from 'rx';
-import {makeKeysDriver} from 'cycle-keys';
 
-function main({DOM, Keys}){
-  const enter$ = Keys.presses('enter');
-
-  const inputText$ = DOM
-    .select('.search')
-    .events('input')
-    .map(e => e.target.value)
-
-  enter$
-    .withLatestFrom(inputText$, (event, text) => text)
-    .subscribe(text => alert(text))
+export default function main({DOM, MousePosition}){
+  const mousePosition$ = MousePosition.positions();
 
   return {
-    DOM: Observable.just(
-      div('.container', [
-        p('.instructions', 'Write in a search term, then hit enter'),
-        input('.search')
-      ])
-    )
+    DOM: mousePosition$.map(pos =>
+      div(
+        '.container', [
+          h1('Where\'s my mouse at? 🐭'),
+          h3(`X: ${pos.x}, Y: ${pos.y}`)
+        ]
+      )
+    );
   }
 }
 
 const drivers = {
   DOM: makeDOMDriver('.app'),
-  Keys: makeKeysDriver()
+  MousePosition: makeMousePositionDriver()
 };
 
 run(app, drivers);
