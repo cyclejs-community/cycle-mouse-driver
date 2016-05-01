@@ -33,7 +33,6 @@
   },
   "homepage": "https://github.com/raquelxmoss/cycle-mouse-position#readme",
   "dependencies": {
-    "keycode": "^2.1.1",
     "rx": "^4.1.0"
   },
   "devDependencies": {
