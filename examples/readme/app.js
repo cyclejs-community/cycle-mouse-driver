@@ -8,10 +8,10 @@ export default function main({DOM, MousePosition}){
     DOM: mousePosition$.map(pos =>
       div(
         '.container', [
-          h1('Where\'s my mouse at? 🐭'),
+          h1('Where\'s my 🐭 at?'),
           h3(`X: ${pos.x}, Y: ${pos.y}`)
         ]
       )
-    );
+    )
   }
 }

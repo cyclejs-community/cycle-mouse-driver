@@ -42,7 +42,7 @@ const mousePosition$ = MousePosition.positions();
 
 **[Try this example online](http://raquelxmoss.github.io/cycle-mouse-position)** 
 
-```js
+```javascript
 import {run} from '@cycle/core';
 import {makeDOMDriver, div, h1, h3} from '@cycle/dom';
 import {makeMousePositionDriver} from 'cycle-mouse-position'
@@ -59,7 +59,7 @@ export default function main({DOM, MousePosition}){
           h3(`X: ${pos.x}, Y: ${pos.y}`)
         ]
       )
-    );
+    )
   }
 }
 
@@ -70,3 +70,4 @@ const drivers = {
 
 run(app, drivers);
 ```
+
