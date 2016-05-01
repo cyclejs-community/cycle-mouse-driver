@@ -1,4 +1,4 @@
-import {makeMousePositionDriver} from '../src/mouse-positions-driver';
+import {makeMousePositionDriver} from '../src/mouse-position-driver';
 
 import assert from 'assert';
 import simulant from 'simulant';
@@ -6,7 +6,7 @@ import simulant from 'simulant';
 describe("makeMousePositionDriver", () => {
   describe("positions", () => {
     it("returns a stream of mouse positions", (done) => {
-      const sources = makeMousePositionsDriver()();
+      const sources = makeMousePositionDriver()();
 
       sources.positions().take(1).subscribe(() => done());
 
