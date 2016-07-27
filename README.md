@@ -74,7 +74,7 @@ export default function main({DOM, Mouse}){
 
 const drivers = {
   DOM: makeDOMDriver('.app'),
-  MousePosition: makeMouseDriver()
+  Mouse: makeMouseDriver()
 };
 
 run(app, drivers);
