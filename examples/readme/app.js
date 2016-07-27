@@ -1,17 +1,27 @@
-import {Observable} from 'rx';
-import {div, h1, h3} from '@cycle/dom';
+import {div, h1, h3, p} from '@cycle/dom';
+import xs from 'xstream';
 
-export default function main({DOM, MousePosition}){
-  const mousePosition$ = MousePosition.positions();
+export default function main ({DOM, Mouse}) {
+  const mousePosition$ = Mouse.positions();
+  const click$ = Mouse.click();
+
+  const clickCount$ = click$
+    .fold((acc, ev) => acc + 1, 0);
+
+  const state$ = xs.combine(
+    mousePosition$,
+    clickCount$
+  );
 
   return {
-    DOM: mousePosition$.map(pos =>
+    DOM: state$.map(([pos, clickCount]) =>
       div(
         '.container', [
           h1('Where\'s my 🐭 at?'),
-          h3(`X: ${pos.x}, Y: ${pos.y}`)
+          h3(`X: ${pos.x}, Y: ${pos.y}`),
+          p(`p.s. you've clicked ${clickCount} times`)
         ]
       )
     )
-  }
+  };
 }

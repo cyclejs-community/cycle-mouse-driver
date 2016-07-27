@@ -1,55 +1,64 @@
-# [Cycle Mouse Position](http://raquelxmoss.github.io/cycle-mouse-position)
+# [Cycle Mouse Driver](http://cyclejs-community.github.io/cycle-mouse-driver)
 
-Have you ever wanted a stream of mouse positions for your Cycle application? Then this driver is for you!
+A driver for Cycle.js to help you deal with mouse events in your application
 
 ## Installation
 
 ```bash
-$ npm install cycle-mouse-position --save
+$ npm install cycle-mouse-driver --save
 ```
+Cycle Mouse Driver is stream library agnostic. You should be able to use it with RxJs, xstream, or whatever you like. Please [open an issue](https://github.com/cyclejs-community/cycle-mouse-driver/issues) if you have any troubles, and note which stream library you are using.
 
 ## Usage
 
-- Install Cycle Mouse Position with npm (see above)
+- Install Cycle Mouse Driver with npm (see above)
 
 - Import the driver
 
 ```js
-import {makeMousePositionDriver} from 'cycle-mouse-position';
+import {makeMouseDriver} from 'cycle-mouse-driver';
 ```
 
-- Initialise the driver by calling `makeMousePositionDriver()` in your drivers object
+- Initialise the driver by calling `makeMouseDriver()` in your drivers object
 
 ```js
 const drivers = {
-  MousePosition: makeMousePositionDriver()
+  Mouse: makeMouseDriver()
 }
 ```
 
 - Add it to your main function's sources
 
 ```js
-function main({MousePosition}) { // Your amazing main function }
+function main({Mouse}) { /* Your amazing main function */ }
 ```
 
-- Call `MousePosition.positions()` without any arguments to get a stream of all mousemove events as a vector with an x and a y position.
+## Methods
+- `up()`: returns a stream of mouseup events
+
+- `down()`: returns a stream of mousedown events
+
+- `click()`: returns a stream of click events
+
+- `positions()`: returns a stream of all mousemove events as a vector with an x and a y position.
 
 ```js
-const mousePosition$ = MousePosition.positions();
+const mousePosition$ = Mouse.positions();
+const mouseUp$ = Mouse.up();
 ```
 
 ## Example
 
-**[Try this example online](http://raquelxmoss.github.io/cycle-mouse-position)** 
+**[Try this example online](http://cyclejs-community.github.io/cycle-mouse-position)**
 
 ```javascript
-import {run} from '@cycle/core';
+import {run} from '@cycle/xstream-run';
 import {makeDOMDriver, div, h1, h3} from '@cycle/dom';
-import {makeMousePositionDriver} from 'cycle-mouse-position'
-import {Observable} from 'rx';
+import {makeMouseDriver} from 'cycle-mouse-position'
+import xs from 'xstream';
 
-export default function main({DOM, MousePosition}){
-  const mousePosition$ = MousePosition.positions();
+export default function main({DOM, Mouse}){
+  const mousePosition$ = Mouse.positions();
 
   return {
     DOM: mousePosition$.map(pos =>
@@ -65,7 +74,7 @@ export default function main({DOM, MousePosition}){
 
 const drivers = {
   DOM: makeDOMDriver('.app'),
-  MousePosition: makeMousePositionDriver()
+  MousePosition: makeMouseDriver()
 };
 
 run(app, drivers);
