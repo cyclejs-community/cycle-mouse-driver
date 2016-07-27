@@ -40,13 +40,13 @@ const mousePosition$ = MousePosition.positions();
 
 ## Example
 
-**[Try this example online](http://raquelxmoss.github.io/cycle-mouse-position)** 
+**[Try this example online](http://raquelxmoss.github.io/cycle-mouse-position)**
 
 ```javascript
-import {run} from '@cycle/core';
+import {run} from '@cycle/xstream-run';
 import {makeDOMDriver, div, h1, h3} from '@cycle/dom';
 import {makeMousePositionDriver} from 'cycle-mouse-position'
-import {Observable} from 'rx';
+import xs from 'xstream';
 
 export default function main({DOM, MousePosition}){
   const mousePosition$ = MousePosition.positions();
