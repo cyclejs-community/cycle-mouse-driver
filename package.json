@@ -1,8 +1,8 @@
 {
-  "name": "cycle-mouse-position",
+  "name": "cycle-mouse-driver",
   "version": "0.0.1",
-  "description": "A driver for Cycle.js that provides a stream of mouse position vectors",
-  "main": "lib/mouse-position-driver.js",
+  "description": "A driver for Cycle.js that provides streams of mouse events",
+  "main": "lib/mouse-driver.js",
   "files": [
     "lib/"
   ],
@@ -17,21 +17,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/raquelxmoss/cycle-mouse-position.git"
+    "url": "git+https://github.com/cyclejs-community/cycle-mouse-driver.git"
   },
   "keywords": [
     "Cycle",
     "Cycle.js",
     "Mouse",
     "Mouse position",
-    "events"
+    "events",
+    "xstream"
   ],
   "author": "Raquel Moss",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/raquelxmoss/cycle-mouse-position/issues"
+    "url": "https://github.com/cyclejs-community/cycle-mouse-driver/issues"
   },
-  "homepage": "https://github.com/raquelxmoss/cycle-mouse-position#readme",
+  "homepage": "https://github.com/cyclejs-community/cycle-mouse-driver#readme",
   "dependencies": {
     "@cycle/xstream-adapter": "^3.0.2",
     "xstream": "^5.3.2"
