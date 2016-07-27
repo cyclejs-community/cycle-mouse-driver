@@ -9,14 +9,14 @@ describe("makeMousePositionDriver", () => {
       const sources = makeMousePositionDriver()();
 
       sources.positions().take(1).addListener({
-        next: () => {
-          const event = simulant('mousemove');
-
-          simulant.fire(document.body, event);
-        },
+        next: () => {},
         error: done,
         complete: done
       });
+
+      const event = simulant('mousemove');
+
+      simulant.fire(document.body, event);
     });
   });
 })
