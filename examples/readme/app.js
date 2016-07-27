@@ -1,7 +1,6 @@
-import xs from 'xstream';
 import {div, h1, h3} from '@cycle/dom';
 
-export default function main({DOM, MousePosition}){
+export default function main ({DOM, MousePosition}) {
   const mousePosition$ = MousePosition.positions();
 
   return {
@@ -13,5 +12,5 @@ export default function main({DOM, MousePosition}){
         ]
       )
     )
-  }
+  };
 }
