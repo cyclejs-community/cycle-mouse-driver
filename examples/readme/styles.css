@@ -7,13 +7,17 @@ html, body {
   justify-content: center;
   margin: 0;
   padding: 0;
+  font-family: 'Open Sans', Helvetica, sans-serif;
   background: purple;
 }
 
 h1, h3 {
   font-size: 300%;
-  font-family: 'Open Sans', Helvetica, sans-serif;
   text-align: center;
   color: #fff;
 }
 
+p {
+  text-align: center;
+  color: #fff;
+}
