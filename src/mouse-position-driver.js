@@ -1,15 +1,15 @@
-import {Observable} from 'rx';
+import fromEvent from 'xstream/extra/fromEvent';
 
 export function makeMousePositionDriver () {
   return function mousePositionDriver () {
     return {
       positions () {
-        return Observable.fromEvent(document, 'mousemove')
+        return fromEvent(document, 'mousemove')
           .map(ev => {
             return {x: ev.clientX, y: ev.clientY}
           }
         )
-        .startWith({x: null, y: null})
+        .startWith({x: 0, y: 0})
       }
     }
   }

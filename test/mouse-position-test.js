@@ -8,11 +8,15 @@ describe("makeMousePositionDriver", () => {
     it("returns a stream of mouse positions", (done) => {
       const sources = makeMousePositionDriver()();
 
-      sources.positions().take(1).subscribe(() => done());
+      sources.positions().take(1).addListener({
+        next: () => {
+          const event = simulant('mousemove');
 
-      const event = simulant('mousemove');
-
-      simulant.fire(document.body, event);
+          simulant.fire(document.body, event);
+        },
+        error: done,
+        complete: done
+      });
     });
   });
 })

@@ -1,4 +1,4 @@
-import {Observable} from 'rx';
+import xs from 'xstream';
 import {div, h1, h3} from '@cycle/dom';
 
 export default function main({DOM, MousePosition}){
