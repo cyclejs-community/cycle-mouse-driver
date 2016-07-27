@@ -8,11 +8,13 @@ html, body {
   margin: 0;
   padding: 0;
   background: purple;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  color: #fff;
+  text-align: center;
 }
 
 h1, h3 {
   font-size: 300%;
-  font-family: 'Open Sans', Helvetica, sans-serif;
   text-align: center;
   color: #fff;
 }
