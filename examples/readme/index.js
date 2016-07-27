@@ -1,12 +1,12 @@
 import {run} from '@cycle/xstream-run';
 import {makeDOMDriver} from '@cycle/dom';
-import {makeMousePositionDriver} from '../../src/mouse-position-driver';
+import {makeMouseDriver} from '../../src/mouse-driver';
 
 var app = require('./app').default;
 
 const drivers = {
   DOM: makeDOMDriver('.app'),
-  MousePosition: makeMousePositionDriver()
+  Mouse: makeMouseDriver()
 };
 
 run(app, drivers);
