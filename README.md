@@ -1,4 +1,4 @@
-# [Cycle Mouse Position](http://raquelxmoss.github.io/cycle-mouse-position)
+# [Cycle Mouse Position](http://cyclejs-community.github.io/cycle-mouse-position)
 
 Have you ever wanted a stream of mouse positions for your Cycle application? Then this driver is for you!
 
@@ -7,6 +7,7 @@ Have you ever wanted a stream of mouse positions for your Cycle application? The
 ```bash
 $ npm install cycle-mouse-position --save
 ```
+Cycle Mouse Position is stream library agnostic. You should be able to use it with RxJs, xstream, or whatever you like. Please [open an issue](https://github.com/cyclejs-community/cycle-mouse-position/issues) if you have any troubles, and note which stream library you are using.
 
 ## Usage
 
@@ -40,13 +41,13 @@ const mousePosition$ = MousePosition.positions();
 
 ## Example
 
-**[Try this example online](http://raquelxmoss.github.io/cycle-mouse-position)** 
+**[Try this example online](http://raquelxmoss.github.io/cycle-mouse-position)**
 
 ```javascript
-import {run} from '@cycle/core';
+import {run} from '@cycle/xstream-run';
 import {makeDOMDriver, div, h1, h3} from '@cycle/dom';
 import {makeMousePositionDriver} from 'cycle-mouse-position'
-import {Observable} from 'rx';
+import xs from 'xstream';
 
 export default function main({DOM, MousePosition}){
   const mousePosition$ = MousePosition.positions();
