@@ -49,7 +49,7 @@ const mouseUp$ = Mouse.up();
 
 ## Example
 
-**[Try this example online](http://cyclejs-community.github.io/cycle-mouse-position)**
+**[Try this example online](http://cyclejs-community.github.io/cycle-mouse-driver)**
 
 ```javascript
 import {run} from '@cycle/xstream-run';
