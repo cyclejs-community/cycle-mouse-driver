@@ -80,3 +80,5 @@ const drivers = {
 run(app, drivers);
 ```
 
+# [Feedback, Ideas, and Contributions welcome](https://github.com/cyclejs-community/cycle-mouse-driver/issues/11)
+We would love to hear from you if you have ideas for features we haven't implemented yet, feedback on the API and documentation, or would like to contribute. Feel free to write your ideas [here](https://github.com/cyclejs-community/cycle-mouse-driver/issues/11), or open an issue. Thanks!
