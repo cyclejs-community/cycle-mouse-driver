@@ -1,5 +1,8 @@
 # [Cycle Mouse Driver](http://cyclejs-community.github.io/cycle-mouse-driver)
 
+## Deprecated
+[Cycle DOM now supports selecting on `document` and `body`](https://github.com/cyclejs/cyclejs/blob/master/dom/CHANGELOG.md#1210-2016-08-14), so this driver is unnecessary.
+
 A driver for Cycle.js to help you deal with mouse events in your application
 
 ## Installation
