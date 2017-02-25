@@ -1,6 +1,6 @@
 {
   "name": "cycle-mouse-driver",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A driver for Cycle.js that provides streams of mouse events",
   "main": "lib/mouse-driver.js",
   "files": [
